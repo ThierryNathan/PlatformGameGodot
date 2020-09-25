@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/more fonts/Sniglet-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/more fonts/KiriFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://YouWin.gd" type="Script" id=3]
+[ext_resource path="res://assets/music/Swinging Pants.ogg" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 34
+font_data = ExtResource( 2 )
+
+[node name="YouWin" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.886275, 1, 0.419608, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 127.368
+margin_top = 41.0526
+margin_right = 929.368
+margin_bottom = 350.053
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.654902, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "VOCÊ VENCEU O JOGO MAIS DIFÍCIL DO MUNDO
+
+PARABÉNS!"
+align = 1
+valign = 1
+
+[node name="Button" type="Button" parent="."]
+margin_left = 294.737
+margin_top = 420.0
+margin_right = 761.737
+margin_bottom = 461.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.172549, 0, 1, 1 )
+custom_colors/font_color_hover = Color( 0.0784314, 1, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "JOGAR NOVAMENTE!"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
